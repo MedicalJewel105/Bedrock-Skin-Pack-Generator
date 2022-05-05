@@ -9,7 +9,7 @@ Created by MJ105#0448.
 2. Put your skins in `<script_folder>/input`. Note that they must match the following format:
 Steve geometry: `<skin_order>_<skin_name>.png`
 Alex geometry: `<skin_order>_<skin_name>_slim.png`.
-3. Run `main.py` and and provide the requested information.
+3. Run `main.py` and provide the requested information.
 4. Find your skin pack in `output` folder.
 
 # Additional Information
