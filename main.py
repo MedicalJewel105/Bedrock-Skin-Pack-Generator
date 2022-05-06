@@ -24,7 +24,7 @@ with open(workspace_path+'data/skins.json', 'r') as sample_skins_json_file:
 skins = []
 skins_to_translate = []
 
-for file_name in os.listdir(workspace_path+'input'):  # Check for errors here
+for file_name in os.listdir(workspace_path+'input'):
     # Get data for each skin
     skin_data = {}
     if file_name.endswith('.png') and file_name[:file_name.find('_')].isnumeric():
