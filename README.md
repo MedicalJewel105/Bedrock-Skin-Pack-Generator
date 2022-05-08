@@ -1,4 +1,4 @@
-# Bedrock-Skin-Pack-Generator
+# Bedrock Skin Pack Generator
 
 Skin pack generator for Minecraft Bedrock Edition.
 Created by MJ105#0448.
