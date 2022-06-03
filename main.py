@@ -34,14 +34,12 @@ for file_name in os.listdir(workspace_path+'input'):
         skin_data['type'] = 'free'
         if file_name.endswith('_slim.png'):
             skin_data['geometry'] += 'Slim'
-            skin_data['localization_name'] = file_name[:-
-                                                       9][file_name.find('_')+1:]
+            skin_data['localization_name'] = file_name[:-4][file_name.find('_')+1:]
+            print(skin_data['localization_name'])
         else:
-            skin_data['localization_name'] = file_name[:-
-                                                       4][file_name.find('_')+1:]
+            skin_data['localization_name'] = file_name[:-4][file_name.find('_')+1:]
         skins_to_translate.append(skin_data['localization_name'])
-        skin_name = file_name.replace('.png', '')[file_name.find(
-            '_')+1:file_name.rfind('_slim')]
+        skin_name = file_name.replace('.png', '')[file_name.find('_')+1:file_name.rfind('_slim')]
         skin_data['order'] = int(file_name[:file_name.find('_')])
         skins.append(skin_data)
     else:
@@ -81,23 +79,19 @@ os.mkdir(temp_path+'texts/')
 
 translations_file = open(temp_path+'texts/en_US.lang', 'w', encoding='UTF-8')
 
-translations_file.write(
-    f'skinpack.{pack_localization_name}={skin_pack_name}\n')
+translations_file.write(f'skinpack.{pack_localization_name}={skin_pack_name}\n')
 for translating_skin in skins_to_translate:
     skin_translation_key = input(f'Name of {translating_skin}: ')
-    translations_file.write(
-        f'skin.{pack_localization_name}.{translating_skin}={skin_translation_key}\n')
+    translations_file.write(f'skin.{pack_localization_name}.{translating_skin}={skin_translation_key}\n')
 translations_file.close()
 
-zipped_skin_pack = zipfile.ZipFile(
-    f'output/{skin_pack_name}.mcpack', mode='w')
+zipped_skin_pack = zipfile.ZipFile(f'output/{skin_pack_name}.mcpack', mode='w')
 
 os.chdir(temp_path)
 
 for skin_pack_file in os.listdir(temp_path):
     if skin_pack_file == 'texts':
-        zipped_skin_pack.write(
-            skin_pack_file+'/'+os.listdir(temp_path+'texts/')[0])
+        zipped_skin_pack.write(skin_pack_file+'/'+os.listdir(temp_path+'texts/')[0])
     zipped_skin_pack.write(skin_pack_file)
 zipped_skin_pack.close()
 
